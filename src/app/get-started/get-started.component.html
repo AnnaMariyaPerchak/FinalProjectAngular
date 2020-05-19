@@ -1,0 +1,115 @@
+<!-- Images — Fade In Left / Right
+Duration —1sec.
+Distance — 100 px
+animation: fadeIn 1s ease-in both; -->
+
+<div style="overflow-x: hidden;">
+    <div class="preferences">
+        <div class="preference">
+            <div data-aos="fade-right" class="img_div">
+                <img src="../../assets/images/meat.jpg" alt="">
+            </div>
+            <div class="question_form">
+                <div class="question">
+                    <label id="example-radio-group-label">Do you eat meat?</label>
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="optionMeat">
+                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                                [value]="option">
+                                {{option}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div>Your favorite season is: {{optionMeat}}</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="preference">
+            <div class="question_form">
+                <div class="question">
+                    <label id="example-radio-group-label">Do you eat fish?</label>
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="optionFish">
+                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                                [value]="option">
+                                {{option}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div>Your favorite season is: {{optionFish}}</div> -->
+                </div>
+            </div>
+            <div data-aos="fade-left" class="img_div">
+                <img src="../../assets/images/fish.jpeg" alt="">
+            </div>
+        </div>
+        <div class="preference">
+            <div data-aos="fade-right" class="img_div">
+                <img src="../../assets/images/dairy-products.jpg" alt="">
+            </div>
+
+            <div class="question_form">
+                <div class="question">
+                    <label id="example-radio-group-label">Do you eat dairy products?</label>
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="optionDairyProduct">
+                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                                [value]="option">
+                                {{option}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div>Your favorite season is: {{optionDairyProduct}}</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="preference">
+            <div class="question_form">
+                <div class="question">
+                    <label id="example-radio-group-label">Do you eat sugar?</label>
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="optionSugar">
+                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                                [value]="option">
+                                {{option}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div>Your favorite season is: {{optionSugar}}</div> -->
+                </div>
+            </div>
+            <div data-aos="fade-left" class="img_div">
+                <img src="../../assets/images/sugar.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="preference">
+            <div data-aos="fade-right" class="img_div">
+                <img src="../../assets/images/gluten-free.jpg" alt="">
+            </div>
+            <div class="question_form">
+                <div class="question">
+                    <label id="example-radio-group-label">Do you eat dishes with gluten?</label>
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="optionGluten">
+                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                                [value]="option">
+                                {{option}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <!-- <div>Your favorite season is: {{optionGluten}}</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sign-up">
+        <a [routerLink]="[ '/sign-up']" class="btn button_sign-up" (click)="addPreference()">Sign up</a> </div>
+
+</div>

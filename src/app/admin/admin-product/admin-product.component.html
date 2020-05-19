@@ -1,0 +1,130 @@
+<div class="col-12" style="border: 1px solid #808080;">
+    <div class="add-form container">
+        <div class="row">
+            <div class="col-9" style="margin: 5px;">
+                <p style="color: black;">Products</p>
+            </div>
+            <div class="col"><input type="button" (click)="addModal(Template)" value="Add" 
+                class="btn special_button" style="background-color: #666666;">
+            </div>
+        </div>
+    </div>
+    <input type="text" name="" id="" placeholder="filter products" class="filter" [(ngModel)]="searchName"
+        name="searchName">
+    <hr>
+    <table class="table table-bordered">
+        <thead style="background-color: #808080">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let  product of arrayProducts |search:searchName;let i=index">
+                <td>{{i+1}}</td>
+                <!-- <td></td> -->
+                <td>{{product.category.name}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.weight}}</td>
+                <td>{{product.price}}</td>
+                <!-- <td>{{product.image}}</td> -->
+                <td>
+                    <img src="{{product.image}}" alt="" class="productImage">
+                </td>
+                <td><input type="button" value="Edit" class="btn special_button" (click)="editModal(Template,product)">
+                </td>
+                <td><input type="button" value="Delete" class="btn special_button"
+                        (click)="deleteModal(deleteTemplate,product)"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #Template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left" *ngIf="!editStatus">Add new dish</h4>
+        <h4 class="modal-title pull-left" *ngIf="editStatus">Edit dish</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">Category:</div>
+                <div class="col-9">
+                      <select class="custom-select" [(ngModel)]="newCategory" >
+                        <option selected>Open this select menu</option>
+                            <option *ngFor="let category of arrayCategories" value="{{category.name}}" >{{category.name}}</option>
+                        
+                      </select>
+                      <!-- <span *ngFor="let category of arrayCategories">{{category.id}}</span> -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">Name:</div>
+                <div class="col-9">
+                    <input type="text" name="" id="" [(ngModel)]="newName" name="newName">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">Description:</div>
+                <div class="col-9">
+                    <input type="text" name="" id="" [(ngModel)]="newDescription" name="newDescription">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">Weight:</div>
+                <div class="col-9">
+                    <input type="text" name="" id="" [(ngModel)]="newWeight" name="newWeight">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">Price:</div>
+                <div class="col-9">
+                    <input type="text" name="" id="" [(ngModel)]="newPrice" name="newPrice">
+                </div>
+            </div>
+        </div>
+        <div class="custom-file">
+            <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="validatedCustomFile" required>
+            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+          </div>
+          <div class="progress mt-3 mb-3">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+              [style.width]="(uploadProgress | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <input type="button" value="Close" class="btn special_button" (click)="modalRef.hide()">
+        <input type="button" *ngIf="!(newName) && !editStatus" value="Add" class="btn special_button" disabled>
+        <input type="button" *ngIf="newName && !editStatus" value="Add" class="btn special_button"
+            (click)="addProduct()">
+        <input type="button" *ngIf="editStatus" value="Save edit" class="btn special_button"
+            (click)="saveEditProduct()">
+    </div>
+</ng-template>
+
+<ng-template #deleteTemplate>
+    <div class="modal-body" style="margin: 0 auto;">
+        <input type="button" value="Dismiss" (click)="dismissProduct()" class="btn special_button"
+            style="margin-right: 10px;">
+        <input type="button" value="Delete" (click)="deleteProduct(deleteProd)" class="btn btn-danger">
+    </div>
+</ng-template>

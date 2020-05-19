@@ -1,0 +1,15 @@
+form {
+  width: 45%;
+  height: 300px;
+  padding: 10px;
+  margin: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+label, a, input[type=email], input[type=password] {
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+/*# sourceMappingURL=log-in.component.css.map */

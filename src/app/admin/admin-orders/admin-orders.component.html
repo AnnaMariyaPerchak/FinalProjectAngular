@@ -1,0 +1,47 @@
+<div class="col-12" style="border: 1px solid #808080;">
+    <div class="add-form container">
+        <div class="row">
+            <div class="col-9" style="margin: 5px;">
+                <p style="color: black;">Orders</p>
+            </div>
+        </div>
+    </div>
+    <input type="text" name="" id="" placeholder="filter products" class="filter" [(ngModel)]="searchName"
+        name="searchName">
+    <hr>
+    <table class="table table-bordered">
+        <thead style="background-color: #808080">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User name</th>
+                <th scope="col">User address</th>
+                <th scope="col">User phone</th>
+                <th scope="col">dishesForOrder</th>
+                <th scope="col">Total price</th>
+                <!-- <th scope="col">Delete</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let  order of arrayOrders |search:searchName;let i=index">
+                <td>{{i+1}}</td>
+                <!-- <td></td> -->
+                <td>{{order.userFirstName}} {{order.userLastName}}</td>
+                <td>{{order.userAddress}}</td>
+                <td>{{order.userPhone}}</td>
+                <td>{{order.dishesForOrder}}</td>
+                <td>{{order.totalPayment}}</td>
+                <!-- <td><input type="button" value="Delete" class="btn special_button" (click)="deleteModal(deleteTemplate,product)"></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- <ng-template #deleteTemplate>
+    <div class="modal-body" style="margin: 0 auto;">
+        <input type="button" value="Dismiss" (click)="dismissProduct()" class="btn special_button"
+            style="margin-right: 10px;">
+        <input type="button" value="Delete" (click)="deleteProduct(deleteProd)" class="btn btn-danger">
+    </div>
+</ng-template> -->

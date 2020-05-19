@@ -1,0 +1,38 @@
+.container {
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-form {
+  background-color: #999999;
+  border: 1px solid #808080;
+  padding: 5px 5px 0 5px;
+  padding-left: 40px;
+}
+
+.special_button {
+  background-color: #999999;
+  color: black;
+  width: 120px;
+}
+
+.filter {
+  width: 100%;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #808080;
+  padding: 3px;
+}
+
+p, td, h4 {
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+
+th {
+  color: black;
+  font-family: 'Comfortaa-Medium';
+}
+/*# sourceMappingURL=admin-orders.component.css.map */

@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" [routerLink]="[ 'category' ]" class="btn special_button" >Category</a>
+          <a class="nav-link" [routerLink]="[ 'products' ]" class="btn special_button" >Dishes</a>
+          <a class="nav-link" [routerLink]="[ 'orders' ]" class="btn special_button" >Orders</a>
+          <button class="btn" style="background-color: #808080;" (click)="logOut()">logout</button>
+        </div>
+      </div>
+      <div class="col-10">
+        <div class="tab-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+  

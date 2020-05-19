@@ -1,0 +1,11 @@
+.dropdown-menu {
+  left: 110px !important;
+  top: 60% !important;
+}
+
+header a {
+  text-decoration: none;
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+/*# sourceMappingURL=header.component.css.map */

@@ -1,0 +1,140 @@
+<div style="margin-left: auto;margin-right: auto;">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="email" name="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" [(ngModel)]="password" name="password">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="city">Phone</label>
+                <input type="text" class="form-control" [(ngModel)]="phone" name="phone">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="address" name="address">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-5 pt-0">Do you eat meat?</legend>
+
+                <!-- <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios1" [checked]='meatYes'>
+                    <label class="form-check-label" for="gridRadios1" >Yes</label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios2" [checked]="!meatYes" >
+                    <label class="form-check-label" for="gridRadios2">No</label>
+                </div> -->
+                <input type="radio" (click)="Meat(options[0].name)" class="col-1" [checked]='meat' name="optionMeat" value="options[0].name">Yes<br>
+                <input type="radio" (click)="Meat(options[1].name)" class="col-1" [checked]='!meat' name="optionMeat" value="options[1].name">No <br>
+                <!-- <p>{{optionMeat}}</p> -->
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-5 pt-0">Do you eat fish?</legend>
+                <input type="radio" (click)="Fish(options[0].name)" class="col-1" [checked]='fish' name="optionFish" value="options[0].name">Yes<br>
+                <input type="radio" (click)="Fish(options[1].name)" class="col-1" [checked]='!fish' name="optionFish" value="options[1].name">No <br>
+                <!-- <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios1" [checked]='fishYes'>
+                    <label class="form-check-label" for="gridRadios1">Yes</label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios2" [checked]='fishNo'>
+                    <label class="form-check-label" for="gridRadios2">No</label>
+                </div> -->
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-5 pt-0">Do you eat dairy products?</legend>
+                <input type="radio" (click)="DairyProducts(options[0].name)" class="col-1" [checked]='dairyProducts' name="optionDairyProducts" value="options[0].name">Yes<br>
+                <input type="radio" (click)="DairyProducts(options[1].name)" class="col-1" [checked]='!dairyProducts' name="optionDairyProducts" value="options[1].name">No <br>
+                <!-- <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios1" [checked]='dairyProductsYes'>
+                    <label class="form-check-label" for="gridRadios1">Yes</label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" id="gridRadios2" [checked]='dairyProductsNo'>
+                    <label class="form-check-label" for="gridRadios2">No</label>
+                </div> -->
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-5 pt-0">Do you eat sugar?</legend>
+                <input type="radio" (click)="Sugar(options[0].name)" class="col-1" [checked]='sugar' name="optionSugar" value="options[0].name">Yes<br>
+                <input type="radio" (click)="Sugar(options[1].name)" class="col-1" [checked]='!sugar' name="optionSugar" value="options[1].name">No <br>
+                
+                <!-- <div class="col-4"> -->
+                    <!-- <div class="form-check col-1">
+                        <input class="form-check-input" type="radio" id="gridRadios1" [checked]='sugarYes'>
+                        <label class="form-check-label" for="gridRadios1">Yes</label>
+                    </div>
+                    <div class="form-check col-1">
+                        <input class="form-check-input" type="radio" id="gridRadios2" [checked]='sugarNo'>
+                        <label class="form-check-label" for="gridRadios2">No</label>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-5 pt-0">Do you eat dishes with gluten?</legend>
+                <input type="radio" (click)="Gluten(options[0].name)" class="col-1" [checked]='gluten' name="optionGluten" value="options[0].name">Yes<br>
+                <input type="radio" (click)="Gluten(options[1].name)" class="col-1" [checked]='!gluten' name="optionGluten" value="options[1].name">No <br>
+                
+                <!-- <div class="col-4"> -->
+                    <!-- <div class="form-check col-1">
+                        <input class="form-check-input" type="radio" id="gridRadios1" [checked]='glutenYes'>
+                        <label class="form-check-label" for="gridRadios1">Yes</label>
+                    </div>
+                    <div class="form-check col-1">
+                        <input class="form-check-input" type="radio" id="gridRadios2" [checked]='glutenNo'>
+                        <label class="form-check-label" for="gridRadios2">No</label>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+        </fieldset>
+
+        <div class="question_form">
+            <div class="question">
+                <label id="example-radio-group-label">Do you eat meat?</label>
+                <div>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        [(ngModel)]="optionMeat">
+                        <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                            [value]="option.name" [checked]="option.checked">
+                            {{option.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <!-- <div>Your favorite season is: {{optionMeat}}</div> -->
+            </div>
+        </div>
+
+        <div style="justify-content: center;display: flex; align-items: center;">
+        <a  (click)="signUp()" class="btn" style="background-color: #a6a6a6;width: 50%;" 
+                    [routerLink]="[ '/log-in']">Sign up</a>
+        </div>
+
+    </form>
+</div>
+

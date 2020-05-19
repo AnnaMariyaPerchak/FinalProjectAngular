@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.home {
+  background: url("../../../assets/images/home-picture.png") no-repeat;
+  /* Firefox 3.6+ */
+  /* Safari 3.1+ и Chrome 4.0+ */
+  /* Opera 9.6+ */
+  background-size: 100%;
+  /* Современные браузеры */
+  height: 600px;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.examples {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.examples a {
+  padding: 7px;
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+
+.examples .container {
+  margin: 0 auto;
+}
+
+.examples .card {
+  margin: 15px;
+}
+
+h2, h1, p {
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+/*# sourceMappingURL=home.component.css.map */

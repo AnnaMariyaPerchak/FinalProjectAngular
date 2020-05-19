@@ -1,0 +1,15 @@
+.btn-color {
+  background-color: #419a1c;
+}
+
+.card {
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 15px;
+}
+
+h5, p, button, input[type=text], h2, h3 {
+  color: #999999;
+  font-family: 'Comfortaa-Medium';
+}
+/*# sourceMappingURL=dish.component.css.map */
