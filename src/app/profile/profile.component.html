@@ -33,6 +33,30 @@
     profile</button>
   <!-- editModal(Template,category) -->
 </div>
+<div style="justify-content: center;display: flex; align-items: center; margin: 15px;">
+
+<table class="table table-bordered">
+  <thead style="background-color: #808080">
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col" class="text-center">Dishes</th>
+          <th scope="col" class="text-center">Total price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let  order of personalOrders ;let i=index">
+        <td>{{i+1}}</td>
+          <td >
+            <ul *ngFor="let dishes of order.dishesForOrder">
+              <li>{{dishes.name}}</li>
+            </ul> 
+          </td>
+          <td class="text-center">{{order.totalPayment}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Edit profile</h4>

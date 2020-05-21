@@ -29,7 +29,7 @@ export class AdminProductComponent implements OnInit {
     {id:'09908d69-016d-45bb-bcff-d64e9cbac52d',name:'meat'},
     {id:'4a46c615-fe81-4bfe-83d0-0f88e6a46a5d',name:'salad'},
     {id:'e2323444-744f-46da-b805-db409cafb4cd',name:'bakery'},
-    {id:'c9edd853-cc17-4967-85e4-7899d844a9ef',name:'sweets'},
+    {id:'c9edd853-cc17-4967-85e4-7899d844a9ef',name:'desserts'},
     {id:'9e7e1a5d-725f-4227-b851-44e319fdbebb',name:'smoothie'},
   ]
 

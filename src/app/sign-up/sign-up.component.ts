@@ -103,14 +103,15 @@ export class SignUpComponent implements OnInit {
   signUp(): void {
     // if (this.options[0].checked){this.editMeat='yes';console.log(this.editMeat)}
     //   else if (this.options[1].checked){this.editMeat='no';console.log(this.editMeat)}
-      console.log(this.optionMeat)
-      console.log(this.optionFish)
-      console.log(this.optionDairyProducts)
-      console.log(this.optionSugar)
-      console.log(this.optionGluten)
+      // console.log(this.optionMeat)
+      // console.log(this.optionFish)
+      // console.log(this.optionDairyProducts)
+      // console.log(this.optionSugar)
+      // console.log(this.optionGluten)
+      const pref=JSON.parse(localStorage.getItem('preference'))
 
-      const newPreferene:IPreference=new Preference(this.prefId,this.optionMeat,this.optionFish,
-        this.optionDairyProducts,this.optionSugar,this.optionGluten)
+      const newPreferene:IPreference=new Preference(this.prefId,pref.optionMeat,pref.optionFish,
+        pref.optionDairyProducts,pref.optionSugar,pref.optionGluten)
         console.log(newPreferene)
         localStorage.setItem('preference',JSON.stringify(newPreferene))
         this.prefService.updateCloudCategory(newPreferene)
@@ -142,32 +143,43 @@ export class SignUpComponent implements OnInit {
       // )
       
   }
-  uuid(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-      let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
+  // uuid(): string {
+  //   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+  //     let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+  //     return v.toString(16);
+  //   });
+  // }
 
   Meat(value:boolean):void{
     console.log('You eat meat: '+value)
-    this.optionMeat=value
+    // this.optionMeat=value
+    const pref=JSON.parse(localStorage.getItem('preference'))
+    pref.optionMeat=value
+    localStorage.setItem('preference',JSON.stringify(pref))
   }
   Fish(value:boolean):void{
     console.log('You eat fish: '+value)
+    const pref=JSON.parse(localStorage.getItem('preference'))
     this.optionFish=value
+    localStorage.setItem('preference',JSON.stringify(pref))
   }
   DairyProducts(value:boolean):void{
-    console.log('You eat dairy products: '+value)
+    console.log('You eat dairy products: '+value)    
+    const pref=JSON.parse(localStorage.getItem('preference'))
     this.optionDairyProducts=value
+    localStorage.setItem('preference',JSON.stringify(pref))
   }
   Sugar(value:boolean):void{
     console.log('You eat sugar: '+value)
+    const pref=JSON.parse(localStorage.getItem('preference'))
     this.optionSugar=value
+    localStorage.setItem('preference',JSON.stringify(pref))
   }
   Gluten(value:boolean):void{
     console.log('You eat gluten: '+value)
+    const pref=JSON.parse(localStorage.getItem('preference'))
     this.optionGluten=value
+    localStorage.setItem('preference',JSON.stringify(pref))
   }
 }
 

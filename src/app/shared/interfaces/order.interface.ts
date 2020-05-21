@@ -1,12 +1,15 @@
 import { IDish } from './dish.interface';
+import { User } from '../modules/user.module';
 
 export interface IOrder{
-    id:number,
-    userFirstName:string,
-    userLastName:string,
-    userAddress:string,
-    userPhone:string,
+    id:string,
+    user:User,
+    // userFirstName:string,
+    // userLastName:string,
+    // userAddress:string,
+    // userPhone:string,
     dishesForOrder:Array<IDish>,
-    totalPayment:number
+    totalPayment:number,
+    // userEmail:string
 }
     // orderStatus: boolean;
