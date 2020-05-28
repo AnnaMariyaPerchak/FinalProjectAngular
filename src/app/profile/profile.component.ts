@@ -66,8 +66,22 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
+
+    const pref = JSON.parse(localStorage.getItem('preference'))
+    this.prefService.preference.next(pref);
   }
 
+
+  close():void{
+    this.modalRef.hide()
+    const newPreferene: IPreference = new Preference(this.prefId, this.optionMeat, this.optionFish,
+      this.optionDairyProduct, this.optionSugar, this.optionGluten)
+    console.log(newPreferene)
+    // localStorage.setItem('preference', JSON.stringify(newPreferene))
+    // this.prefService.updateCloudPreference(newPreferene)
+    // this.prefService.preference.next(newPreferene);
+    this.prefService.preference.next(newPreferene)
+  }
 
   logOut(): void {
     this.auth.signOut();
@@ -173,18 +187,25 @@ export class ProfileComponent implements OnInit {
       this.optionDairyProduct, this.optionSugar, this.optionGluten)
     console.log(newPreferene)
     localStorage.setItem('preference', JSON.stringify(newPreferene))
-    this.prefService.updateCloudCategory(newPreferene)
+    this.prefService.updateCloudPreference(newPreferene)
+    this.prefService.preference.next(newPreferene);
+    
+
     const editProfile: IUser = new User(this.userId, this.editFirstName, this.editLastName,
       this.editEmail, this.userPassword, this.editAddress,
       this.editPhone, newPreferene, 'user');
     console.log(editProfile)
+    console.log(editProfile.preferences)
     this.userSErvice.updateCloudUser(editProfile)
     localStorage.setItem('user', JSON.stringify(editProfile))
+    this.userSErvice.updateCloudUser(editProfile)
     this.getUser();
+
   }
   Meat(value: boolean): void {
     console.log('You eat meat: ' + value)
     this.optionMeat = value
+    // this.prefService.preference.next(this.optionMeat);
   }
   Fish(value: boolean): void {
     console.log('You eat fish: ' + value)

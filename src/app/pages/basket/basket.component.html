@@ -50,8 +50,8 @@
  
 <ng-template #makeOrderTemplate>
   <div class="modal-body modal-sm">
-    Your order is being prepared
-  </div>
+<p>    Your order is being prepared</p>  
+</div>
 </ng-template>
 
  
@@ -64,7 +64,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <small>    If you want to make an order,you need to specify delivery details.    </small>
+    <small class="text-center">    If you want to make an order,you need to specify delivery details.    </small>
 
     <hr>
     <form>
@@ -101,7 +101,7 @@
       </form>
   </div>
   <div class="modal-footer">
-    <input type="button" value="Close" class="btn special_button" (click)="modalRef.hide()">
-    <input type="button" value="Make an order" class="btn special_button" (click)="orderWithoutLogIn()">
+    <input type="button" value="Close" class="btn" style="background-color: #999999;color: black;" (click)="modalRef.hide()">
+    <input type="button" value="Make an order" class="btn" style="background-color: #999999;color: black;" (click)="orderWithoutLogIn()">
 </div>
 </ng-template>

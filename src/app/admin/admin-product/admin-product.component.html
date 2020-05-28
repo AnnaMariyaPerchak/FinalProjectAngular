@@ -18,9 +18,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Category</th>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
+                <th scope="col" >Description</th>
                 <th scope="col">Weight</th>
-                <th scope="col">Price</th>
+                <th scope="col" style="width: 80px">Price</th>
                 <th scope="col">Image</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -34,14 +34,14 @@
                 <td>{{product.name}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.weight}}</td>
-                <td>{{product.price}}</td>
+                <td>{{product.price}} grn</td>
                 <!-- <td>{{product.image}}</td> -->
                 <td>
                     <img src="{{product.image}}" alt="" class="productImage">
                 </td>
-                <td><input type="button" value="Edit" class="btn special_button" (click)="editModal(Template,product)">
+                <td><input type="button" style="width: 100%;" value="Edit" class="btn special_button" (click)="editModal(Template,product)">
                 </td>
-                <td><input type="button" value="Delete" class="btn special_button"
+                <td><input type="button" value="Delete" class="btn special_button" style="width: 100%;"
                         (click)="deleteModal(deleteTemplate,product)"></td>
             </tr>
         </tbody>

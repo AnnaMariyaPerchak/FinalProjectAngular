@@ -39,4 +39,8 @@ export class OrdersService {
       }))
     )
   }
+  deleteCloudOrder(order:IOrder):any{
+    return this.firestore.doc('orders/'+order.id).delete()
+
+  }
 }

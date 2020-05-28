@@ -10,14 +10,14 @@
                   <a href id="basic-link" dropdownToggle (click)="false" aria-controls="basic-link-dropdown">Our food</a>
                   <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu" role="menu"
                       aria-labelledby="basic-link">
-                          <a class="dropdown-item" [routerLink]="[ '/menu/soup']">Soup</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/pasta']">Pasta</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/bowl']">Bowl</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/fish']">Fish</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/meat']">Meat</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/salad']">salad</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/bakery']">Bakery</a>
-                          <a class="dropdown-item" [routerLink]="[ '/menu/desserts']">Desserts</a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/soup']">Soup <small style="font-size: xx-small;">{{recomendSoup}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/pasta']">Pasta <small style="font-size: xx-small;">{{recomendPasta}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/bowl']">Bowl <small style="font-size: xx-small;">{{recomendBowl}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/fish']">Fish <small style="font-size: xx-small;">{{recomendFish}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/meat']">Meat <small style="font-size: xx-small;">{{recomendMeat}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/salad']">Salad <small style="font-size: xx-small;">{{recomendSalad}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/bakery']">Bakery <small style="font-size: xx-small;">{{recomendBakery}}</small></a>
+                          <a class="dropdown-item" [routerLink]="[ '/menu/desserts']">Desserts <small style="font-size: xx-small;">{{recomendDesserts}}</small></a>
                           <!-- <a class="dropdown-item" [routerLink]="[ '/menu/smothie']">Smoothie</a> -->
                   </ul>
               </span>
@@ -38,7 +38,7 @@
                 <a class="nav-link special_button" [routerLink]="[ '/admin']" >Admin</a>
               </li> -->
             <li class="nav-item" >
-              <a class="nav-link special_button" [routerLink]="[ '/basket']">Basket : {{totalPrice}} грн</a>
+              <a class="nav-link special_button" [routerLink]="[ '/basket']">Basket : {{totalPrice}} grn</a>
             </li>
             <li class="nav-item" >
                 <a *ngIf="!statusLogin" class="nav-link special_button" [routerLink]="[ '/log-in']">Log in</a>

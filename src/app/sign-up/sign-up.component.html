@@ -114,22 +114,6 @@
             </div>
         </fieldset>
 
-        <div class="question_form">
-            <div class="question">
-                <label id="example-radio-group-label">Do you eat meat?</label>
-                <div>
-                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-                        [(ngModel)]="optionMeat">
-                        <mat-radio-button class="example-radio-button" *ngFor="let option of options"
-                            [value]="option.name" [checked]="option.checked">
-                            {{option.name}}
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </div>
-                <!-- <div>Your favorite season is: {{optionMeat}}</div> -->
-            </div>
-        </div>
-
         <div style="justify-content: center;display: flex; align-items: center;">
         <a  (click)="signUp()" class="btn" style="background-color: #a6a6a6;width: 50%;" 
                     [routerLink]="[ '/log-in']">Sign up</a>

@@ -37,14 +37,14 @@ export class UsersService {
       password:user.password,
       address:user.address,
       phone:user.phone,
-      preferences:{},
-     //  preferences:{
-     //   id:user.preferences.id,
-     //   optionMeat: user.preferences.optionMeat,
-     //   optionFish: user.preferences.optionFish,
-     //   optionDairyProduct: user.preferences.optionDairyProduct,
-     //   optionSugar: user.preferences.optionSugar,
-     //   optionGluten: user.preferences.optionGluten},
+      // preferences:{},
+      preferences:{
+       id:user.preferences.id,
+       optionMeat: user.preferences.optionMeat,
+       optionFish: user.preferences.optionFish,
+       optionDairyProduct: user.preferences.optionDairyProduct,
+       optionSugar: user.preferences.optionSugar,
+       optionGluten: user.preferences.optionGluten},
       role:user.role})
   }
   getCloudUser():any{

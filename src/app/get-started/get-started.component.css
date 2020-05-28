@@ -6,17 +6,17 @@
 
 .preference .img_div {
   width: 50%;
-  height: 450px;
+  height: 550px;
 }
 
 .preference .img_div img {
   width: 100%;
-  height: 450px;
+  height: 550px;
 }
 
 .question_form {
   width: 50%;
-  height: 450px;
+  height: 550px;
   background-color: #ccc;
   position: relative;
 }

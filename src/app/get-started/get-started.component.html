@@ -5,17 +5,18 @@ animation: fadeIn 1s ease-in both; -->
 
 <div style="overflow-x: hidden;">
     <div class="preferences">
-        <div class="preference">
+        <div class="preference" id="meat">
             <div data-aos="fade-right" class="img_div">
                 <img src="../../assets/images/meat.jpg" alt="">
             </div>
-            <div class="question_form">
+            <div class="question_form" >
                 <div class="question">
                     <label id="example-radio-group-label">Do you eat meat?</label>
                     <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [(ngModel)]="optionMeat">
-                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
+                            
+                            <mat-radio-button class="example-radio-button" (click)="onClick('fish')"  *ngFor="let option of options"
                                 [value]="option">
                                 {{option}}
                             </mat-radio-button>
@@ -25,17 +26,15 @@ animation: fadeIn 1s ease-in both; -->
                 </div>
             </div>
         </div>
-        <div class="preference">
+        <div class="preference" id="fish">
             <div class="question_form">
                 <div class="question">
                     <label id="example-radio-group-label">Do you eat fish?</label>
                     <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [(ngModel)]="optionFish">
-                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
-                                [value]="option">
-                                {{option}}
-                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" (click)="onClick('dairy')"  *ngFor="let option of options"
+                            [value]="option">{{option}}</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <!-- <div>Your favorite season is: {{optionFish}}</div> -->
@@ -45,7 +44,7 @@ animation: fadeIn 1s ease-in both; -->
                 <img src="../../assets/images/fish.jpeg" alt="">
             </div>
         </div>
-        <div class="preference">
+        <div class="preference" id="dairy">
             <div data-aos="fade-right" class="img_div">
                 <img src="../../assets/images/dairy-products.jpg" alt="">
             </div>
@@ -56,27 +55,23 @@ animation: fadeIn 1s ease-in both; -->
                     <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [(ngModel)]="optionDairyProduct">
-                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
-                                [value]="option">
-                                {{option}}
-                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" (click)="onClick('sugar')"  *ngFor="let option of options"
+                            [value]="option">{{option}}</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <!-- <div>Your favorite season is: {{optionDairyProduct}}</div> -->
                 </div>
             </div>
         </div>
-        <div class="preference">
+        <div class="preference" id="sugar">
             <div class="question_form">
                 <div class="question">
                     <label id="example-radio-group-label">Do you eat sugar?</label>
                     <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [(ngModel)]="optionSugar">
-                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
-                                [value]="option">
-                                {{option}}
-                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" (click)="onClick('gluten')"  *ngFor="let option of options"
+                            [value]="option">{{option}}</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <!-- <div>Your favorite season is: {{optionSugar}}</div> -->
@@ -87,7 +82,7 @@ animation: fadeIn 1s ease-in both; -->
             </div>
         </div>
 
-        <div class="preference">
+        <div class="preference" id="gluten">
             <div data-aos="fade-right" class="img_div">
                 <img src="../../assets/images/gluten-free.jpg" alt="">
             </div>
@@ -97,10 +92,8 @@ animation: fadeIn 1s ease-in both; -->
                     <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                             [(ngModel)]="optionGluten">
-                            <mat-radio-button class="example-radio-button" *ngFor="let option of options"
-                                [value]="option">
-                                {{option}}
-                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" (click)="onClick('sign-up')"  *ngFor="let option of options"
+                            [value]="option">{{option}}</mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <!-- <div>Your favorite season is: {{optionGluten}}</div> -->
@@ -109,7 +102,7 @@ animation: fadeIn 1s ease-in both; -->
         </div>
     </div>
 
-    <div class="sign-up">
+    <div class="sign-up" id="sign-up">
         <a [routerLink]="[ '/sign-up']" class="btn button_sign-up" (click)="addPreference()">Sign up</a> </div>
 
 </div>

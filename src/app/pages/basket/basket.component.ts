@@ -47,6 +47,7 @@ export class BasketComponent implements OnInit {
     }
   }
 
+
   private checkBasket(): void {
     if (localStorage.length > 0 && localStorage.getItem('dishes')) {
       this.orders = JSON.parse(localStorage.getItem('dishes'));

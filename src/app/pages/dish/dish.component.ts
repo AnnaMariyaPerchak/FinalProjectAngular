@@ -19,10 +19,12 @@ export class DishComponent implements OnInit {
   private dishCollection: AngularFirestoreCollection<Dish>;
 
   dishes: Array<Dish>
-  currentDish:any
+  currentDish: any
+  categoryName: string
   // arrayProducts: Array<IDish> 
   category: string
   i: number = 0
+
   constructor(private dishService: DishService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -33,39 +35,22 @@ export class DishComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         const nameOfCategory = this.activatedRoute.snapshot.paramMap.get('category');
+        this.categoryName = nameOfCategory
         this.getDishes(nameOfCategory)
       }
     });
   }
 
-  ngOnInit(): void {
-    // this.dishService.getCloudDishes().subscribe(
-    //   data => {
-    //     this.dishes = data.map(e => {
-    //       return {
-    //         id: e.payload.doc.id,
-    //         ...e.payload.doc.data()
-    //       } as Dish;
-    //     })
-    //   }
-    // )
-  }
+  ngOnInit(): void { }
 
   private getDishes(categoryName: string = 'soup'): void {
     console.log(categoryName)
+
     this.dishService.getCloudCategoryDishes(categoryName).subscribe(
       data => {
-        this.dishes=data
+        this.dishes = data
       }
     )
-    // this.dishService.getCloudCategoryDishes(categoryName).onSnapshot(data => {
-    //   this.dishes = data.map(e => {
-    //     return {
-    //       id: e.payload.doc.id,
-    //       ...e.payload.doc.data()
-    //     } as Dish;
-    //   })
-    // });
   }
 
   public addBasket(dish: IDish): void {

@@ -109,12 +109,14 @@ export class SignUpComponent implements OnInit {
       // console.log(this.optionSugar)
       // console.log(this.optionGluten)
       const pref=JSON.parse(localStorage.getItem('preference'))
-
+      console.log(pref)
+      console.log(pref.optionDairyProduct)
       const newPreferene:IPreference=new Preference(this.prefId,pref.optionMeat,pref.optionFish,
-        pref.optionDairyProducts,pref.optionSugar,pref.optionGluten)
+        pref.optionDairyProduct,pref.optionSugar,pref.optionGluten)
         console.log(newPreferene)
         localStorage.setItem('preference',JSON.stringify(newPreferene))
-        this.prefService.updateCloudCategory(newPreferene)
+        this.prefService.addCloudPreference(newPreferene)
+        // this.prefService.updateCloudPreference(newPreferene)
         // console.log(this.editMeat)
 
     // this.auth.signUp(this.firstName, this.lastName,

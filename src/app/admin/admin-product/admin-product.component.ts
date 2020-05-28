@@ -94,7 +94,7 @@ export class AdminProductComponent implements OnInit {
     this.newDescription=product.description
     this.newWeight=product.weight
     this.newPrice=product.price
-
+    this.productImage=product.image
     this.productId=product.id
 
     this.editStatus = true;
@@ -122,25 +122,10 @@ export class AdminProductComponent implements OnInit {
   }
 
   addProduct():void{
-    // console.log(this.categoryId,this.categoryName)
-    // const newCateg:ICategory=new Category(this.categoryId,this.categoryName)
-    // console.log(this.cat)
-
-    // if (this.newCategory=='Soup') {this.categoryId="a0ef7164-e581-4263-a448-58281db45376"}
-    // else if (this.newCategory=='Pasta') {this.categoryId='f928ea93-325f-49ca-b6d0-fb0f840ed240'}
-    // else  if (this.newCategory=='Bowl') {this.categoryId='872f6f9c-c4e8-44d8-ac3f-ac84569afd4d'}
-    // else  if (this.newCategory=='Fish') {this.categoryId='f518b3de-9f52-4026-93b9-48dfe7fa78a7'}
-    // else  if (this.newCategory=='Meat') {this.categoryId='09908d69-016d-45bb-bcff-d64e9cbac52d'}
-    // else  if (this.newCategory=='Salad') {this.categoryId='4a46c615-fe81-4bfe-83d0-0f88e6a46a5d'}
-    // else  if (this.newCategory=='Bakery') {this.categoryId='e2323444-744f-46da-b805-db409cafb4cd'}
-    // else  if (this.newCategory=='Sweet') {this.categoryId='c9edd853-cc17-4967-85e4-7899d844a9ef'}
-    // else  if (this.newCategory=='Smoothie') {this.categoryId='9e7e1a5d-725f-4227-b851-44e319fdbebb'}
-    // console.log(this.categoryId)
-    // console.log(this.newCategory)
-    // this.categoryService.getCloudCategories()
     for(let i=0;i<this.arrayCategories.length;i++){
       if (this.arrayCategories[i].name==this.newCategory){
         this.categoryId=this.arrayCategories[i].id
+        console.log(this.categoryId)
       }
     }
     const catProd:ICategory=new Category(this.categoryId,this.newCategory)
@@ -150,9 +135,6 @@ export class AdminProductComponent implements OnInit {
     this.arrayProducts.push(newProduct)
     this.productService.addCloudDish(newProduct)
     this.getProduct()
-    // .subscribe(
-    //   () => {this.getProduct()}
-    // )
     this.resetForm()
   }
 
@@ -175,6 +157,12 @@ export class AdminProductComponent implements OnInit {
     this.modalRef.hide()
   }
   public saveEditProduct(): void{
+    for(let i=0;i<this.arrayCategories.length;i++){
+      if (this.arrayCategories[i].name==this.newCategory){
+        this.categoryId=this.arrayCategories[i].id
+        console.log(this.categoryId)
+      }
+    }
     const editProduct: IDish = new Dish(this.productId,
       new Category(this.categoryId,this.newCategory),
                                               this.newName,
@@ -184,19 +172,15 @@ export class AdminProductComponent implements OnInit {
                                               this.productImage);
     this.productService.updateCloudDish(editProduct)
     this.getProduct()
-    // .subscribe(
-    //   () => {
-    //     this.getProduct();
-    //   }
-    // );
   }
 
   private resetForm():void{
-    // this.newCategory={null,''}
+    this.newCategory=''
     this.newName=''
     this.newDescription=''
     this.newWeight=''
     this.newPrice=null
+    this.productImage=''
   }
 
   uploadFile(event) {

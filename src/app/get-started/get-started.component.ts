@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { IPreference } from '../shared/interfaces/preference.interface';
 import { Preference } from '../shared/modules/preference.module';
 import { PreferencesService } from '../shared/services/preferences.service';
@@ -23,11 +23,19 @@ export class GetStartedComponent implements OnInit {
   optionGluten: boolean;
   options: string[] = ['yes','no'];
   preferences:Array<IPreference>=[]
-
+  
   constructor(private prefService: PreferencesService) { }
 
   ngOnInit(): void {
     this.getPreference()
+  }
+
+  onClick(id: string): void {
+    const el: HTMLElement|null = document.getElementById(id);
+    if (el) {
+      setTimeout(() =>
+        el.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'}), 0);
+    }
   }
 
   signUp():void{

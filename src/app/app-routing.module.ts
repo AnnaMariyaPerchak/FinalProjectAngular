@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { DishComponent } from './pages/dish/dish.component';
 
+
 import { GetStartedComponent } from './get-started/get-started.component';
 
 import { SignUpComponent } from './sign-up/sign-up.component';

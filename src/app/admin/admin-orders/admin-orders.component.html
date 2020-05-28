@@ -25,23 +25,19 @@
             <tr *ngFor="let  order of arrayOrders |search:searchName;let i=index">
                 <td>{{i+1}}</td>
                 <!-- <td></td> -->
-                <td>{{order.userFirstName}} {{order.userLastName}}</td>
-                <td>{{order.userAddress}}</td>
-                <td>{{order.userPhone}}</td>
-                <td>{{order.dishesForOrder}}</td>
+                <td>{{order.user.firstName}} {{order.user.lastName}}</td>
+                <td>{{order.user.address}}</td>
+                <td>{{order.user.phone}}</td>
+                <!-- <td>{{order.dishesForOrder}}</td> -->
+                <td >
+                    <ul *ngFor="let dishes of order.dishesForOrder">
+                      <li>{{dishes.count}} x {{dishes.name}}</li>
+                    </ul> 
+                  </td>
                 <td>{{order.totalPayment}}</td>
-                <!-- <td><input type="button" value="Delete" class="btn special_button" (click)="deleteModal(deleteTemplate,product)"></td> -->
+                <!-- <td><input type="button" value="Delete" class="btn" style="background-color: #999999;color: black;" (click)="deleteModal(deleteTemplate,order)"></td> -->
             </tr>
         </tbody>
     </table>
 </div>
 
-
-
-<!-- <ng-template #deleteTemplate>
-    <div class="modal-body" style="margin: 0 auto;">
-        <input type="button" value="Dismiss" (click)="dismissProduct()" class="btn special_button"
-            style="margin-right: 10px;">
-        <input type="button" value="Delete" (click)="deleteProduct(deleteProd)" class="btn btn-danger">
-    </div>
-</ng-template> -->
