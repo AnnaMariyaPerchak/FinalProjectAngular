@@ -18,24 +18,20 @@
                 <th scope="col">User phone</th>
                 <th scope="col">dishesForOrder</th>
                 <th scope="col">Total price</th>
-                <!-- <th scope="col">Delete</th> -->
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let  order of arrayOrders |search:searchName;let i=index">
                 <td>{{i+1}}</td>
-                <!-- <td></td> -->
                 <td>{{order.user.firstName}} {{order.user.lastName}}</td>
                 <td>{{order.user.address}}</td>
                 <td>{{order.user.phone}}</td>
-                <!-- <td>{{order.dishesForOrder}}</td> -->
                 <td >
                     <ul *ngFor="let dishes of order.dishesForOrder">
                       <li>{{dishes.count}} x {{dishes.name}}</li>
                     </ul> 
                   </td>
                 <td>{{order.totalPayment}}</td>
-                <!-- <td><input type="button" value="Delete" class="btn" style="background-color: #999999;color: black;" (click)="deleteModal(deleteTemplate,order)"></td> -->
             </tr>
         </tbody>
     </table>

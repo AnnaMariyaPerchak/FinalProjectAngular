@@ -66,21 +66,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
-
-    const pref = JSON.parse(localStorage.getItem('preference'))
-    this.prefService.preference.next(pref);
   }
 
 
-  close():void{
+  close(): void {
     this.modalRef.hide()
-    const newPreferene: IPreference = new Preference(this.prefId, this.optionMeat, this.optionFish,
-      this.optionDairyProduct, this.optionSugar, this.optionGluten)
-    console.log(newPreferene)
-    // localStorage.setItem('preference', JSON.stringify(newPreferene))
-    // this.prefService.updateCloudPreference(newPreferene)
-    // this.prefService.preference.next(newPreferene);
-    this.prefService.preference.next(newPreferene)
   }
 
   logOut(): void {
@@ -88,16 +78,15 @@ export class ProfileComponent implements OnInit {
   }
 
   check(data) {
-    console.log(data);
+    // console.log(data);
   }
 
   submit(form: NgForm) {
-    console.log(form.value)
+    // console.log(form.value)
   }
 
   getUser() {
     this.user = JSON.parse(localStorage.getItem('user'))
-    console.log(this.user)
     this.userName = this.user.firstName + ' ' + this.user.lastName
     this.userEmail = this.user.email
     this.userAddress = this.user.address
@@ -110,12 +99,10 @@ export class ProfileComponent implements OnInit {
     this.optionGluten = this.user.preferences.optionGluten
     this.userId = this.user.id
     this.userPassword = this.user.password
-    console.log(this.userEmail)
 
     this.orderService.getCloudOrdersPersonal(this.user.email).subscribe(
-      data=>{
-        console.log(data)
-        this.personalOrders=data
+      data => {
+        this.personalOrders = data
       }
     )
   }
@@ -129,73 +116,74 @@ export class ProfileComponent implements OnInit {
     this.editPhone = this.user.phone
 
     const newPref = JSON.parse(localStorage.getItem('preference'))
-    console.log(newPref)
     this.prefId = newPref.id
     this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
       data => {
-        console.log('pref from firebase', newPref)
-        if (newPref.optionMeat === 'yes') {
+        if (data.optionMeat === 'yes') {
           this.meat = true
-          this.optionMeat = newPref.optionMeat
-        } else if (newPref.optionMeat === 'no') {
+          this.optionMeat = data.optionMeat
+        } else if (data.optionMeat === 'no') {
           this.meat = false
-          this.optionMeat = newPref.optionMeat
+          this.optionMeat = data.optionMeat
         }
 
-        if (newPref.optionFish === 'yes') {
+        if (data.optionFish === 'yes') {
           this.fish = true
-          this.optionFish = newPref.optionFish
-        } else if (newPref.optionFish === 'no') {
+          this.optionFish = data.optionFish
+        } else if (data.optionFish === 'no') {
           this.fish = false
-          this.optionFish = newPref.optionFish
+          this.optionFish = data.optionFish
         }
 
-        if (newPref.optionDairyProduct === 'yes') {
+        if (data.optionDairyProduct === 'yes') {
           this.dairyProducts = true
-          this.optionDairyProduct = newPref.optionDairyProduct
-        } else if (newPref.optionDairyProduct === 'no') {
+          this.optionDairyProduct = data.optionDairyProduct
+        } else if (data.optionDairyProduct === 'no') {
           this.dairyProducts = false
-          this.optionDairyProduct = newPref.optionDairyProduct
+          this.optionDairyProduct = data.optionDairyProduct
         }
 
-        if (newPref.optionSugar === 'yes') {
+        if (data.optionSugar === 'yes') {
           this.sugar = true
-          this.optionSugar = newPref.optionSugar
-        } else if (newPref.optionSugar === 'no') {
+          this.optionSugar = data.optionSugar
+        } else if (data.optionSugar === 'no') {
           this.sugar = false
-          this.optionSugar = newPref.optionSugar
+          this.optionSugar = data.optionSugar
         }
-        if (newPref.optionGluten === 'yes') {
+        if (data.optionGluten === 'yes') {
           this.gluten = true
-          this.optionGluten = newPref.optionGluten
-        } else if (newPref.optionGluten === 'no') {
+          this.optionGluten = data.optionGluten
+        } else if (data.optionGluten === 'no') {
           this.gluten = false
-          this.optionGluten = newPref.optionGluten
+          this.optionGluten = data.optionGluten
         }
       }
     )
   }
 
   saveEditProfile() {
-    console.log(this.optionMeat)
-    console.log(this.optionFish)
-    console.log(this.optionDairyProduct)
-    console.log(this.optionSugar)
-    console.log(this.optionGluten)
-
-    const newPreferene: IPreference = new Preference(this.prefId, this.optionMeat, this.optionFish,
-      this.optionDairyProduct, this.optionSugar, this.optionGluten)
-    console.log(newPreferene)
+    const oldUser = JSON.parse(localStorage.getItem('user'))
+    const newPreferene: IPreference = new Preference(oldUser.preferences.id,
+      this.optionMeat,
+      this.optionFish,
+      this.optionDairyProduct,
+      this.optionSugar,
+      this.optionGluten)
     localStorage.setItem('preference', JSON.stringify(newPreferene))
     this.prefService.updateCloudPreference(newPreferene)
     this.prefService.preference.next(newPreferene);
-    
 
-    const editProfile: IUser = new User(this.userId, this.editFirstName, this.editLastName,
-      this.editEmail, this.userPassword, this.editAddress,
-      this.editPhone, newPreferene, 'user');
-    console.log(editProfile)
-    console.log(editProfile.preferences)
+
+    const editProfile: IUser = new User(this.userId,
+      this.editFirstName,
+      this.editLastName,
+      this.editEmail,
+      this.userPassword,
+      this.editAddress,
+      this.editPhone,
+      newPreferene,
+      'user');
+
     this.userSErvice.updateCloudUser(editProfile)
     localStorage.setItem('user', JSON.stringify(editProfile))
     this.userSErvice.updateCloudUser(editProfile)
@@ -203,24 +191,18 @@ export class ProfileComponent implements OnInit {
 
   }
   Meat(value: boolean): void {
-    console.log('You eat meat: ' + value)
     this.optionMeat = value
-    // this.prefService.preference.next(this.optionMeat);
   }
   Fish(value: boolean): void {
-    console.log('You eat fish: ' + value)
     this.optionFish = value
   }
   DairyProducts(value: boolean): void {
-    console.log('You eat dairy products: ' + value)
     this.optionDairyProduct = value
   }
   Sugar(value: boolean): void {
-    console.log('You eat sugar: ' + value)
     this.optionSugar = value
   }
   Gluten(value: boolean): void {
-    console.log('You eat gluten: ' + value)
     this.optionGluten = value
   }
 }

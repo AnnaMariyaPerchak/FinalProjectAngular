@@ -1,13 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { IDish } from 'src/app/shared/interfaces/dish.interface';
-import { ICategory } from 'src/app/shared/interfaces/category.interface';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
-import { DishService } from 'src/app/shared/services/dish.service';
-import { CategoryService } from 'src/app/shared/services/category.service';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Dish } from 'src/app/shared/modules/dish.module';
-import { Category } from 'src/app/shared/modules/category.module';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 import { Order } from 'src/app/shared/modules/order.module';

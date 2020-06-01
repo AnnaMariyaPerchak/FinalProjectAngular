@@ -34,7 +34,6 @@ export class BasketComponent implements OnInit {
   phone: string
   address: string
   dishesForOrder: Array<IDish>
-  // totalPayment: number
 
   constructor(private orderService: OrdersService, private modalService: BsModalService) { }
 
@@ -73,7 +72,6 @@ export class BasketComponent implements OnInit {
     this.orders.splice(index, 1);
     this.total()
     this.updateLocalStorage();
-    // console.log(this.orders)
   }
 
   private updateLocalStorage() {
@@ -95,13 +93,9 @@ export class BasketComponent implements OnInit {
     this.userLastName = user.lastName
     this.userAddress = user.address
     this.userPhone = user.phone
-    this.userEmail=user.email
-    console.log(user.email)
-    // alert('Your order is being prepared')
+    this.userEmail=user.userEmail
 
-    // else if (!localStorage.getItem('user')){this.makeOrder=false}
     const newOrder: IOrder = new Order(`${this.uuid()}`,user,this.orders,this.totalPrice)
-      console.log(newOrder)
     this.orders = [];
     localStorage.setItem('dishes', JSON.stringify(this.orders));
     this.orderService.basket.next(this.orders);
@@ -120,17 +114,9 @@ export class BasketComponent implements OnInit {
   }
 
   orderWithoutLogIn(): void {
-    console.log(this.userFirstName)
-    console.log(this.userLastName)
-    console.log(this.userEmail)
-    console.log(this.userPhone)
-    console.log(this.userAddress)
-    console.log(this.totalPrice)
-    console.log(this.orders)
     let preferencesWithoutLogIn:IPreference
     if(localStorage.getItem('preference')){
       preferencesWithoutLogIn=JSON.parse(localStorage.getItem('preference'))
-      // preferencesWithoutLogIn=preferencesWithoutLogIn1
     } else {
       preferencesWithoutLogIn=new Preference(`${this.uuid()}`,true,true,true,true,true)
       localStorage.setItem('preference',JSON.stringify(preferencesWithoutLogIn))
@@ -141,11 +127,9 @@ export class BasketComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(userWithoutLogIn));
 
     const newOrder: IOrder = new Order(`${this.uuid()}`,
-    userWithoutLogIn,
-      this.orders,
-      this.totalPrice)
-      console.log(this.orders)
-      console.log(newOrder)
+                                        userWithoutLogIn,
+                                        this.orders,
+                                        this.totalPrice)
     this.orders = [];
     localStorage.setItem('dishes', JSON.stringify(this.orders));
     this.orderService.basket.next(this.orders);

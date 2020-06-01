@@ -1,4 +1,3 @@
-<!-- <p>{{category}}</p> -->
 <h3 class="text-center">{{ categoryName | titlecase }}</h3>
 
 <div class="container">
@@ -7,28 +6,22 @@
       <div class="card" style="width: 18rem;">
         <img [attr.src]="dish.image" class="card-img-top" alt="...">
         <div class="card-body">
-          <!-- <h5 class="card-title">{{dish.category}}</h5>  -->
           <h3 class="card-title text-center">{{dish.name}}</h3>
           <p class="card-text">{{dish.description}}</p>
           <p>Weight : {{dish.weight}}</p>
           <p>Price : {{dish.price}} grn</p>
-          <!-- <div style="display: flex;">
-            <button>Minus</button>
-            <input type="number" name="" id="" placeholder="count" value="1">
-            <button (click)="addCount()">Plus</button>
-          </div> -->
-
           <div class="d-flex justify-content-between">
-            <button type="button" class="btn" (click)="dishCount(dish, false)" style="background-color: #a6a6a6;color: black;"
-              [disabled]="dish.count===1 ? true : false">-</button>
+            <button type="button" class="btn" (click)="dishCount(dish, false)"
+              style="background-color: #a6a6a6;color: black;" [disabled]="dish.count===1 ? true : false">-</button>
             <input type="text" [value]="dish.count">
-            <button type="button" class="btn" (click)="dishCount(dish, true)" style="background-color: #a6a6a6;color: black;"
-            >+</button>
+            <button type="button" class="btn" (click)="dishCount(dish, true)"
+              style="background-color: #a6a6a6;color: black;">+</button>
           </div>
-          <h2 class="card-text text-center" >{{ dish.price * dish.count }} grn</h2>
-          <div style="justify-content: center;display: flex; align-items: center;"> 
-            <button class="btn" style="background-color: #a6a6a6;width: 50%;color: black;" (click)="addBasket(dish)">Add to cart</button>
-        </div>
+          <h2 class="card-text text-center">{{ dish.price * dish.count }} grn</h2>
+          <div style="justify-content: center;display: flex; align-items: center;">
+            <button class="btn" style="background-color: #a6a6a6;width: 50%;color: black;" (click)="addBasket(dish)">Add
+              to cart</button>
+          </div>
         </div>
       </div>
     </div>

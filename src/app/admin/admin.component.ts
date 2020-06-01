@@ -10,8 +10,7 @@ export class AdminComponent implements OnInit {
 
   constructor(private auth:LogInService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   
   logOut(): void {
     this.auth.signOut();

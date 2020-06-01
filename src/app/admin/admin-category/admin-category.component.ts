@@ -3,7 +3,6 @@ import { ICategory } from 'src/app/shared/interfaces/category.interface';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { Category } from 'src/app/shared/modules/category.module';
-import { database } from 'firebase';
 
 @Component({
   selector: 'app-admin-category',
@@ -14,7 +13,6 @@ export class AdminCategoryComponent implements OnInit {
 
   arrayCategories:Array<ICategory>=[]
   newCategory:string
-  // editCategoryName:string
   CategoryId:string
   deleteCat:ICategory;
 
@@ -23,12 +21,12 @@ export class AdminCategoryComponent implements OnInit {
   searchName:string
   
   editStatus: boolean;
+
   constructor(private modalService: BsModalService,
               private categoryService:CategoryService) {}
  
   ngOnInit(): void {
     this.getCategory()
-    // console.log(this.arrayCategories)
   }
 
   addModal(template: TemplateRef<any>) {
@@ -62,16 +60,10 @@ export class AdminCategoryComponent implements OnInit {
   }
   addCategory():void{
     const newCat:ICategory=new Category(`${this.uuid()}`,this.newCategory);
-    // if (this.arrayCategories.length > 0) {
-    //   console.log(this.arrayCategories.length)
-    //   newCat.id = this.arrayCategories.slice(-1)[0].id + 1;
     this.arrayCategories.push(newCat)
     console.log(this.arrayCategories)
-      // this.arrayCategories[length-1]=newCat
     this.categoryService.addCloudCategory(newCat)
     this.newCategory=''
-    // console.log(newCat)
-    // console.log(this.arrayCategories)
     
   }
 
@@ -85,9 +77,6 @@ export class AdminCategoryComponent implements OnInit {
   deleteCategory(category:ICategory):void{
     this.categoryService.deleteCloudCategory(category)
     this.getCategory()
-    // .subscribe(
-    //   ()=>{this.getCategory()}
-    // )
     this.modalRef.hide()
   }
   dismissCategory():void{
@@ -98,11 +87,6 @@ export class AdminCategoryComponent implements OnInit {
     console.log(editD)
     this.categoryService.updateCloudCategory(editD)
     this.getCategory();
-    // .subscribe(
-    //   () => {
-    //     this.getCategory();
-    //   }
-    // );
     this.newCategory=''
   }
 }

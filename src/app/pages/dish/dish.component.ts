@@ -4,9 +4,7 @@ import { IDish } from 'src/app/shared/interfaces/dish.interface';
 import { DishService } from 'src/app/shared/services/dish.service';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 import { Dish } from 'src/app/shared/modules/dish.module';
-// import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-// import { Observable } from 'rxjs';
 
 export interface DishId extends Dish { id: string }
 
@@ -21,15 +19,14 @@ export class DishComponent implements OnInit {
   dishes: Array<Dish>
   currentDish: any
   categoryName: string
-  // arrayProducts: Array<IDish> 
   category: string
   i: number = 0
 
   constructor(private dishService: DishService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private orderService: OrdersService,
-    private afs: AngularFirestore) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private orderService: OrdersService,
+              private afs: AngularFirestore) {
     this.dishCollection = afs.collection('dishes')
 
     this.router.events.subscribe((event: Event) => {
@@ -44,8 +41,6 @@ export class DishComponent implements OnInit {
   ngOnInit(): void { }
 
   private getDishes(categoryName: string = 'soup'): void {
-    console.log(categoryName)
-
     this.dishService.getCloudCategoryDishes(categoryName).subscribe(
       data => {
         this.dishes = data
