@@ -56,6 +56,8 @@ export class ProfileComponent implements OnInit {
 
   personalOrders: Array<Order>
 
+  add:any
+
   constructor(private auth: LogInService,
     private userSErvice: UsersService,
     private prefService: PreferencesService,
@@ -117,48 +119,90 @@ export class ProfileComponent implements OnInit {
 
     const newPref = JSON.parse(localStorage.getItem('preference'))
     this.prefId = newPref.id
-    this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
-      data => {
-        if (data.optionMeat === 'yes') {
-          this.meat = true
+    // this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
+    //   data => {
+      this.prefService.preference.subscribe(
+        data=>{
+          console.log(data)
+        
+        if (data.optionMeat) {
+          // this.meat = true
           this.optionMeat = data.optionMeat
-        } else if (data.optionMeat === 'no') {
-          this.meat = false
-          this.optionMeat = data.optionMeat
+        } else if (!data.optionMeat) {
+          // this.meat = false
+          this.optionMeat = newPref.optionMeat
         }
 
-        if (data.optionFish === 'yes') {
-          this.fish = true
+        if (data.optionFish) {
+          // this.fish = true
           this.optionFish = data.optionFish
-        } else if (data.optionFish === 'no') {
-          this.fish = false
+        } else if (!data.optionFish) {
+          // this.fish = false
           this.optionFish = data.optionFish
         }
 
-        if (data.optionDairyProduct === 'yes') {
-          this.dairyProducts = true
+        if (data.optionDairyProduct) {
+          // this.dairyProducts = true
           this.optionDairyProduct = data.optionDairyProduct
-        } else if (data.optionDairyProduct === 'no') {
-          this.dairyProducts = false
+        } else if (!data.optionDairyProduct) {
+          // this.dairyProducts = false
           this.optionDairyProduct = data.optionDairyProduct
         }
 
-        if (data.optionSugar === 'yes') {
-          this.sugar = true
+        if (data.optionSugar) {
+          // this.sugar = true
           this.optionSugar = data.optionSugar
-        } else if (data.optionSugar === 'no') {
-          this.sugar = false
+        } else if (!data.optionSugar) {
+          // this.sugar = false
           this.optionSugar = data.optionSugar
         }
-        if (data.optionGluten === 'yes') {
-          this.gluten = true
+        if (data.optionGluten) {
+          // this.gluten = true
           this.optionGluten = data.optionGluten
-        } else if (data.optionGluten === 'no') {
-          this.gluten = false
+        } else if (!data.optionGluten) {
+          // this.gluten = false
           this.optionGluten = data.optionGluten
         }
       }
-    )
+      )
+      if (newPref.optionMeat==='yes') {
+        this.meat = true
+        // this.optionMeat = data.optionMeat
+      } else if (newPref.optionMeat==='no') {
+        this.meat = false
+        // this.optionMeat = newPref.optionMeat
+      }
+
+      if (newPref.optionFish==='yes') {
+        this.fish = true
+        // this.optionFish = data.optionFish
+      } else if (newPref.optionFish==='no') {
+        this.fish = false
+        // this.optionFish = data.optionFish
+      }
+
+      if (newPref.optionDairyProduct==='yes') {
+        this.dairyProducts = true
+        // this.optionDairyProduct = data.optionDairyProduct
+      } else if (newPref.optionDairyProduct==='no') {
+        this.dairyProducts = false
+        // this.optionDairyProduct = data.optionDairyProduct
+      }
+
+      if (newPref.optionSugar==='yes') {
+        this.sugar = true
+        // this.optionSugar = data.optionSugar
+      } else if (newPref.optionSugar==='no') {
+        this.sugar = false
+        // this.optionSugar = data.optionSugar
+      }
+      if (newPref.optionGluten==='yes') {
+        this.gluten = true
+        // this.optionGluten = data.optionGluten
+      } else if (newPref.optionGluten==='no') {
+        this.gluten = false
+        // this.optionGluten = data.optionGluten
+      }
   }
 
   saveEditProfile() {

@@ -1,4 +1,4 @@
-h2,p,h4,input[type=text],span,button,li,td{
+h2,p,h4,input[type=text],span,button,li,td,legend{
     color: #999999;
         font-family: 'Comfortaa-Medium';
 }
@@ -32,4 +32,17 @@ th{
 
 table{
     width: 40%;
+}
+
+@media screen and (max-width: 1200px ) and (min-width: 768px){
+    .modal-body{
+        .container{
+            .row{
+                padding: 8px;
+                input[type=text]{
+                    width: 290px;
+                }
+            }
+        }
+    }
 }

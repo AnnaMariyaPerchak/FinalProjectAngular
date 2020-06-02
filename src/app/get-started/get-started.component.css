@@ -72,4 +72,19 @@
 label, mat-radio-button {
   font-family: 'Comfortaa-Medium';
 }
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .preference .img_div {
+    width: 50%;
+    height: 400px;
+  }
+  .preference .img_div img {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+.question_form {
+  height: 400px;
+}
 /*# sourceMappingURL=get-started.component.css.map */

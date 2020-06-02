@@ -7,4 +7,10 @@ th {
   color: black;
   font-family: 'Comfortaa-Medium';
 }
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  td input[type=text] {
+    width: 130px;
+  }
+}
 /*# sourceMappingURL=basket.component.css.map */
