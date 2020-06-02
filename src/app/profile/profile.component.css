@@ -42,4 +42,13 @@ table {
     width: 290px;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .personal_info {
+    width: 35%;
+  }
+  table {
+    width: 60%;
+  }
+}
 /*# sourceMappingURL=profile.component.css.map */

@@ -46,3 +46,12 @@ table{
         }
     }
 }
+
+@media screen and (max-width: 992px){
+    .personal_info{
+        width: 35%;
+    }
+    table{
+        width: 60%;
+    }
+}

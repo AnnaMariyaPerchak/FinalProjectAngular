@@ -6,10 +6,28 @@
   margin-left: 35px;
   margin-right: 35px;
   margin-bottom: 15px;
+  width: 18rem;
+}
+
+.col {
+  width: 300px;
 }
 
 h5, p, button, input[type=text], h2, h3 {
   color: #999999;
   font-family: 'Comfortaa-Medium';
+}
+
+@media screen and (max-width: 992px) {
+  .container .row .card {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container .row .col {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 /*# sourceMappingURL=dish.component.css.map */
