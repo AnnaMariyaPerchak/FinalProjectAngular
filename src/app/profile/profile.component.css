@@ -31,24 +31,41 @@ th {
 }
 
 table {
-  width: 40%;
+  width: 65%;
 }
 
-@media screen and (max-width: 1200px) and (min-width: 768px) {
-  .modal-body .container .row {
-    padding: 8px;
-  }
-  .modal-body .container .row input[type=text] {
-    width: 290px;
-  }
+.makeOrderButton {
+  background-color: #a6a6a6;
+  width: 15%;
+  color: black;
+  margin: 15px;
 }
 
-@media screen and (max-width: 992px) {
+.profileButton {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px;
+}
+
+@media screen and (max-width: 768px) {
   .personal_info {
-    width: 35%;
+    width: 45%;
   }
-  table {
-    width: 60%;
+}
+
+@media screen and (max-width: 425px) {
+  .personal_info {
+    width: 95%;
+  }
+  .makeOrderButton {
+    width: 65%;
   }
 }
 /*# sourceMappingURL=profile.component.css.map */

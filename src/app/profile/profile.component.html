@@ -26,34 +26,32 @@
     </div>
   </div>
 </div>
-<div style="justify-content: center;display: flex; align-items: center; margin: 15px;">
-  <button class="btn" style="background-color: #a6a6a6;width: 15%;color: black; margin-right: 15px;"
-    (click)="logOut()">Logout</button>
-  <button class="btn" style="background-color: #a6a6a6;width: 15%;color: black;" (click)="openModal(template,user)">Edit
-    profile</button>
+<div class="profileButton">
+  <button class="btn makeOrderButton" (click)="logOut()">Logout</button>
+  <button class="btn makeOrderButton" (click)="openModal(template,user)">Edit profile</button>
 </div>
 <div style="justify-content: center;display: flex; align-items: center; margin: 15px;">
 
-<table class="table table-bordered">
-  <thead style="background-color: #808080">
+  <table class="table table-bordered">
+    <thead style="background-color: #808080">
       <tr>
-          <th scope="col">#</th>
-          <th scope="col" class="text-center">Dishes</th>
-          <th scope="col" class="text-center">Total price</th>
+        <th scope="col">#</th>
+        <th scope="col" class="text-center">Dishes</th>
+        <th scope="col" class="text-center">Total price</th>
       </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
       <tr *ngFor="let  order of personalOrders ;let i=index">
         <td>{{i+1}}</td>
-          <td >
-            <ul *ngFor="let dishes of order.dishesForOrder">
-              <li>{{dishes.count}} x {{dishes.name}}</li>
-            </ul> 
-          </td>
-          <td class="text-center">{{order.totalPayment}}</td>
+        <td>
+          <ul *ngFor="let dishes of order.dishesForOrder">
+            <li>{{dishes.count}} x {{dishes.name}}</li>
+          </ul>
+        </td>
+        <td class="text-center">{{order.totalPayment}}</td>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
 
 <ng-template #template>
@@ -119,9 +117,11 @@
       <div class="row">
         <legend class="col-form-label col-5 pt-0">Do you eat meat?</legend>
         <input type="radio" (click)="Meat(options[0].name)" class="col-1" [checked]='meat' name="optionMeat"
-          value="options[0].name"><p>Yes</p><br>
+          value="options[0].name">
+        <p>Yes</p><br>
         <input type="radio" (click)="Meat(options[1].name)" class="col-1" [checked]='!meat' name="optionMeat"
-          value="options[1].name"><p>No</p> <br>
+          value="options[1].name">
+        <p>No</p> <br>
 
       </div>
     </fieldset>
@@ -129,9 +129,11 @@
       <div class="row">
         <legend class="col-form-label col-5 pt-0">Do you eat fish?</legend>
         <input type="radio" (click)="Fish(options[0].name)" class="col-1" [checked]='fish' name="optionFish"
-          value="options[0].name"><p>Yes</p><br>
+          value="options[0].name">
+        <p>Yes</p><br>
         <input type="radio" (click)="Fish(options[1].name)" class="col-1" [checked]='!fish' name="optionFish"
-          value="options[1].name"><p>No</p> <br>
+          value="options[1].name">
+        <p>No</p> <br>
 
       </div>
     </fieldset>
@@ -139,9 +141,11 @@
       <div class="row">
         <legend class="col-form-label col-5 pt-0">Do you eat dairy products?</legend>
         <input type="radio" (click)="DairyProducts(options[0].name)" class="col-1" [checked]='dairyProducts'
-          name="optionDairyProducts" value="options[0].name"><p>Yes</p><br>
+          name="optionDairyProducts" value="options[0].name">
+        <p>Yes</p><br>
         <input type="radio" (click)="DairyProducts(options[1].name)" class="col-1" [checked]='!dairyProducts'
-          name="optionDairyProducts" value="options[1].name"><p>No</p> <br>
+          name="optionDairyProducts" value="options[1].name">
+        <p>No</p> <br>
 
       </div>
     </fieldset>
@@ -149,9 +153,11 @@
       <div class="row">
         <legend class="col-form-label col-5 pt-0">Do you eat sugar?</legend>
         <input type="radio" (click)="Sugar(options[0].name)" class="col-1" [checked]='sugar' name="optionSugar"
-          value="options[0].name"><p>Yes</p><br>
+          value="options[0].name">
+        <p>Yes</p><br>
         <input type="radio" (click)="Sugar(options[1].name)" class="col-1" [checked]='!sugar' name="optionSugar"
-          value="options[1].name"><p>No</p> <br>
+          value="options[1].name">
+        <p>No</p> <br>
 
       </div>
     </fieldset>
@@ -159,9 +165,11 @@
       <div class="row">
         <legend class="col-form-label col-5 pt-0">Do you eat dishes with gluten?</legend>
         <input type="radio" (click)="Gluten(options[0].name)" class="col-1" [checked]='gluten' name="optionGluten"
-          value="options[0].name"><p>Yes</p><br>
+          value="options[0].name">
+        <p>Yes</p><br>
         <input type="radio" (click)="Gluten(options[1].name)" class="col-1" [checked]='!gluten' name="optionGluten"
-          value="options[1].name"><p>No</p> <br>
+          value="options[1].name">
+        <p>No</p> <br>
 
       </div>
     </fieldset>

@@ -68,6 +68,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
+    
   }
 
 
@@ -88,7 +89,17 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser() {
+    // this.userSErvice.getCloudUser()
     this.user = JSON.parse(localStorage.getItem('user'))
+    // this.userId = this.user.id
+
+    // this.userSErvice.user.subscribe(
+    //   data=>{
+    //     console.log(data)
+    //   })
+
+    
+
     this.userName = this.user.firstName + ' ' + this.user.lastName
     this.userEmail = this.user.email
     this.userAddress = this.user.address
@@ -101,6 +112,8 @@ export class ProfileComponent implements OnInit {
     this.optionGluten = this.user.preferences.optionGluten
     this.userId = this.user.id
     this.userPassword = this.user.password
+
+    this.prefService.preference.next(this.userPreferences)
 
     this.orderService.getCloudOrdersPersonal(this.user.email).subscribe(
       data => {
@@ -118,6 +131,7 @@ export class ProfileComponent implements OnInit {
     this.editPhone = this.user.phone
 
     const newPref = JSON.parse(localStorage.getItem('preference'))
+    // console.log(newPref)
     this.prefId = newPref.id
     // this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
     //   data => {

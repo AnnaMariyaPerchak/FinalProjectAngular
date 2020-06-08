@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {Subject} from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   
+  user: Subject<IUser> = new Subject<IUser>();
+
   constructor(private firestore: AngularFirestore) {}s
   
   addCloudUser(user:IUser):any{
@@ -50,7 +53,7 @@ export class UsersService {
   getCloudUser():any{
     return this.firestore.collection('users').snapshotChanges();
   }
-  getCloudOneUser(id:number):any{
+  getCloudOneUser(id:string):any{
     return this.firestore.collection('users').doc('id').snapshotChanges()
     // return this.http.get<IUser>(`${this.url}/${id}`)
   }

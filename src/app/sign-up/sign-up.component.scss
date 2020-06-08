@@ -13,6 +13,13 @@ label,input[type=text],legend{
     font-family: 'Comfortaa-Medium';
 }
 
-.form-check{
-    width: 50%;
+@media screen and (max-width: 768px){
+    form{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 425px){
+    form{
+        width: 95%;
+    }
 }

@@ -31,27 +31,32 @@ th{
 }
 
 table{
-    width: 40%;
+    width: 65%;
+}
+.makeOrderButton{
+    background-color: #a6a6a6;
+    width: 15%;
+    color: black;
+    margin: 15px;
+}
+.profileButton{
+    justify-content: center;
+    display: flex; 
+    align-items: center; 
+    margin: 15px;
 }
 
-@media screen and (max-width: 1200px ) and (min-width: 768px){
-    .modal-body{
-        .container{
-            .row{
-                padding: 8px;
-                input[type=text]{
-                    width: 290px;
-                }
-            }
-        }
-    }
-}
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 768px){
     .personal_info{
-        width: 35%;
+        width: 45%;
     }
-    table{
-        width: 60%;
+}
+@media screen and (max-width: 425px){
+    .personal_info{
+        width: 95%;
+    }
+    .makeOrderButton{
+        width: 65%;
     }
 }

@@ -1,6 +1,6 @@
 <h1 class="text-center">Orders</h1>
 <div style="min-height: 300px;">
-  <div class="container" *ngIf="orders.length!==0">
+  <div class="container" style="width: 100%;" *ngIf="orders.length!==0">
     <table class="table">
       <thead>
         <th>#</th>
@@ -16,11 +16,11 @@
           <td>{{ order.name }}</td>
           <td>{{ order.price }}</td>
           <td style="width: 280px;">
-            <div class="d-flex justify-content-between">
-              <button type="button" (click)="orderCount(order, false)" class="btn"
+            <div class="count justify-content-between">
+              <button type="button"  (click)="orderCount(order, false)" class="btn count1"
                 style="background-color: #a6a6a6;color: black;" [disabled]="order.count===1 ? true : false">-</button>
               <input type="text" [value]="order.count">
-              <button type="button" (click)="orderCount(order, true)" class="btn"
+              <button type="button" (click)="orderCount(order, true)" class="btn count2"
                 style="background-color: #a6a6a6;color: black;">
                 +</button>
             </div>
@@ -37,9 +37,9 @@
     </table>
     <p style="color: black;">Total price {{totalPrice}} grn</p>
     <div style="justify-content: center;display: flex; align-items: center;">
-      <a class="btn" *ngIf="makeOrder" style="background-color: #a6a6a6;width: 50%;color: black;margin: 15px;"
+      <a class="btn makeOrderButton" *ngIf="makeOrder"
         (click)="addOrder(makeOrderTemplate)">MAKE AN ORDER</a>
-      <a class="btn" *ngIf="!makeOrder" style="background-color: #a6a6a6;width: 50%;color: black;margin: 15px;"
+      <a class="btn makeOrderButton" *ngIf="!makeOrder" 
         (click)="openModal(template)">MAKE AN ORDER</a>
 
     </div>

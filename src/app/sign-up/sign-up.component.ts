@@ -42,7 +42,8 @@ export class SignUpComponent implements OnInit {
     { name: 'no', checked: false }
   ];
 
-  prefId: string
+  pref: any
+  prefId:string 
 
   constructor(private userService: UsersService,
     private prefService: PreferencesService,
@@ -51,50 +52,56 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     const newPref = JSON.parse(localStorage.getItem('preference'))
     this.prefId = newPref.id
-    this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
-      data => {
-        console.log('pref from firebase', data)
-        if (data.optionMeat === 'yes') {
+    // this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
+    //   data => {
+    //     this.pref = data.map(e => {
+    //       // return {
+    //         const id= e.payload.doc.id
+    //         const dat=e.payload.doc.data()
+    //       // } as Preference;
+    //     })
+        console.log(newPref)
+        if (newPref.optionMeat === 'yes') {
           this.meat = true
-          this.optionMeat = data.optionMeat
-        } else if (data.optionMeat === 'no') {
+          this.optionMeat = newPref.optionMeat
+        } else if (newPref.optionMeat === 'no') {
           this.meat = false
-          this.optionMeat = data.optionMeat
+          this.optionMeat = newPref.optionMeat
         }
 
-        if (data.optionFish === 'yes') {
+        if (newPref.optionFish === 'yes') {
           this.fish = true
-          this.optionFish = data.optionFish
-        } else if (data.optionFish === 'no') {
+          this.optionFish = newPref.optionFish
+        } else if (newPref.optionFish === 'no') {
           this.fish = false
-          this.optionFish = data.optionFish
+          this.optionFish = newPref.optionFish
         }
 
-        if (data.optionDairyProduct === 'yes') {
+        if (newPref.optionDairyProduct === 'yes') {
           this.dairyProducts = true
-          this.optionDairyProducts = data.optionDairyProduct
-        } else if (data.optionDairyProduct === 'no') {
+          this.optionDairyProducts = newPref.optionDairyProduct
+        } else if (newPref.optionDairyProduct === 'no') {
           this.dairyProducts = false
-          this.optionDairyProducts = data.optionDairyProduct
+          this.optionDairyProducts = newPref.optionDairyProduct
         }
 
-        if (data.optionSugar === 'yes') {
+        if (newPref.optionSugar === 'yes') {
           this.sugar = true
-          this.optionSugar = data.optionSugar
-        } else if (data.optionSugar === 'no') {
+          this.optionSugar = newPref.optionSugar
+        } else if (newPref.optionSugar === 'no') {
           this.sugar = false
-          this.optionSugar = data.optionSugar
+          this.optionSugar = newPref.optionSugar
         }
-        if (data.optionGluten === 'yes') {
+        if (newPref.optionGluten === 'yes') {
           this.gluten = true
-          this.optionGluten = data.optionGluten
-        } else if (data.optionGluten === 'no') {
+          this.optionGluten = newPref.optionGluten
+        } else if (newPref.optionGluten === 'no') {
           this.gluten = false
-          this.optionGluten = data.optionGluten
+          this.optionGluten = newPref.optionGluten
         }
       }
-    )
-  }
+    // )
+  // }
 
   signUp(): void {
     const pref = JSON.parse(localStorage.getItem('preference'))

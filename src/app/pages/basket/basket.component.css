@@ -8,9 +8,54 @@ th {
   font-family: 'Comfortaa-Medium';
 }
 
-@media screen and (max-width: 1200px) and (min-width: 768px) {
+.makeOrderButton {
+  background-color: #a6a6a6;
+  width: 50%;
+  color: black;
+  margin: 15px;
+}
+
+@media screen and (max-width: 1200px) {
   td input[type=text] {
     width: 130px;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .makeOrderButton {
+    width: 55%;
+  }
+  table {
+    max-width: 100%;
+    display: block;
+    overflow: auto;
+  }
+  .count {
+    margin: 0  auto;
+  }
+  .count input[type=text] {
+    width: 30px;
+    margin: 5px;
+    vertical-align: middle;
+  }
+  .count .count1 {
+    vertical-align: top;
+    width: 30px;
+    margin: 5px;
+  }
+  .count .count2 {
+    vertical-align: bottom;
+    width: 30px;
+    margin: 5px;
+  }
+  .count:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0px;
+    overflow: hidden;
+    vertical-align: middle;
   }
 }
 /*# sourceMappingURL=basket.component.css.map */

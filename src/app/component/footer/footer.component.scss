@@ -26,4 +26,20 @@ footer{
     h3,p{
         font-family: 'Comfortaa-Medium';
     }
+    .logIn{
+        margin: 10px;
+        margin-left: 0px;
+        // text-align: center;
+    }
+}
+
+@media screen and (max-width: 425px){
+    footer{
+        .row{
+            display: block;
+        }
+        .col-2{
+            margin-top: 15px;
+        }
+    }
 }

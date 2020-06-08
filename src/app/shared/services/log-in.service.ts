@@ -66,11 +66,12 @@ export class LogInService {
   signIn(email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.log(user);
+        // console.log(user);
         this.firestore.collection('users').ref.where('id', '==', user.user.uid).onSnapshot(
           users => {
             users.forEach(userRef => {
               this.currentUser = userRef.data();
+              console.log(this.currentUser)
               localStorage.setItem('user', JSON.stringify(this.currentUser));
               if (this.currentUser.role !== 'admin') {
                 this.checkUserLogin = true;
@@ -86,7 +87,13 @@ export class LogInService {
           }
         );
       })
-      .catch(err => console.log('user sign in ', err));
+      .catch(
+        err => {
+          // console.log('user sign in ', err)
+          alert(`user sign in ${err}`)
+          this.router.navigateByUrl('log-in')
+        }
+      );
   }
 
   signOut() {
