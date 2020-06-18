@@ -1,15 +1,69 @@
-// @import '../../fonts.scss';
-
 .home{
-    background: url('../../../assets/images/home-picture.png') no-repeat;
-    -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-    -o-background-size: 100%; /* Opera 9.6+ */
-    background-size: 100%; /* Современные браузеры */
-    height: 600px;
     text-align: center;
     padding-top: 60px;
+    img{
+        height: 300px;
+    }
+    .first_part{
+        width: 50%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h2{
+            animation: bounceIn 5s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        p{
+            animation: bounceIn 5s;
+            animation-delay: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    }
+    .h1_first{
+        animation: move 5s infinite;
+        animation-timing-function: linear;
+    }
+    .examples{
+      button{
+        margin: 5px;
+      }
+      .card{
+        height: 500px;
+      }
+    }
 }
+
+@keyframes bounceIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    60% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes move {
+    from {left: 0px;}
+    to {left: 300px;}
+  }
 
 .examples{
     margin-top: 15px;
@@ -32,4 +86,22 @@
 h2,h1,p{
     color: #999999;
     font-family: 'Comfortaa-Medium';
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    .row{
+
+        .card{
+            width: 20rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .col{
+            width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IPreference } from '../shared/interfaces/preference.interface';
-import { IUser } from '../shared/interfaces/user.interface';
-import { UsersService } from '../shared/services/users.service';
-import { PreferencesService } from '../shared/services/preferences.service';
-import { Preference } from '../shared/modules/preference.module';
-import { LogInService } from '../shared/services/log-in.service';
+import { IPreference } from 'src/app/shared/interfaces/preference.interface';
+import { IUser } from 'src/app/shared/interfaces/user.interface';
+import { UsersService } from 'src/app/shared/services/users.service';
+import { PreferencesService } from 'src/app/shared/services/preferences.service';
+import { Preference } from 'src/app/shared/modules/preference.module';
+import { LogInService } from 'src/app/shared/services/log-in.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -43,7 +43,9 @@ export class SignUpComponent implements OnInit {
   ];
 
   pref: any
-  prefId:string 
+  prefId: string
+
+
 
   constructor(private userService: UsersService,
     private prefService: PreferencesService,
@@ -52,56 +54,45 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     const newPref = JSON.parse(localStorage.getItem('preference'))
     this.prefId = newPref.id
-    // this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
-    //   data => {
-    //     this.pref = data.map(e => {
-    //       // return {
-    //         const id= e.payload.doc.id
-    //         const dat=e.payload.doc.data()
-    //       // } as Preference;
-    //     })
-        console.log(newPref)
-        if (newPref.optionMeat === 'yes') {
-          this.meat = true
-          this.optionMeat = newPref.optionMeat
-        } else if (newPref.optionMeat === 'no') {
-          this.meat = false
-          this.optionMeat = newPref.optionMeat
-        }
+    if (newPref.optionMeat === 'yes') {
+      this.meat = true
+      this.optionMeat = newPref.optionMeat
+    } else if (newPref.optionMeat === 'no') {
+      this.meat = false
+      this.optionMeat = newPref.optionMeat
+    }
 
-        if (newPref.optionFish === 'yes') {
-          this.fish = true
-          this.optionFish = newPref.optionFish
-        } else if (newPref.optionFish === 'no') {
-          this.fish = false
-          this.optionFish = newPref.optionFish
-        }
+    if (newPref.optionFish === 'yes') {
+      this.fish = true
+      this.optionFish = newPref.optionFish
+    } else if (newPref.optionFish === 'no') {
+      this.fish = false
+      this.optionFish = newPref.optionFish
+    }
 
-        if (newPref.optionDairyProduct === 'yes') {
-          this.dairyProducts = true
-          this.optionDairyProducts = newPref.optionDairyProduct
-        } else if (newPref.optionDairyProduct === 'no') {
-          this.dairyProducts = false
-          this.optionDairyProducts = newPref.optionDairyProduct
-        }
+    if (newPref.optionDairyProduct === 'yes') {
+      this.dairyProducts = true
+      this.optionDairyProducts = newPref.optionDairyProduct
+    } else if (newPref.optionDairyProduct === 'no') {
+      this.dairyProducts = false
+      this.optionDairyProducts = newPref.optionDairyProduct
+    }
 
-        if (newPref.optionSugar === 'yes') {
-          this.sugar = true
-          this.optionSugar = newPref.optionSugar
-        } else if (newPref.optionSugar === 'no') {
-          this.sugar = false
-          this.optionSugar = newPref.optionSugar
-        }
-        if (newPref.optionGluten === 'yes') {
-          this.gluten = true
-          this.optionGluten = newPref.optionGluten
-        } else if (newPref.optionGluten === 'no') {
-          this.gluten = false
-          this.optionGluten = newPref.optionGluten
-        }
-      }
-    // )
-  // }
+    if (newPref.optionSugar === 'yes') {
+      this.sugar = true
+      this.optionSugar = newPref.optionSugar
+    } else if (newPref.optionSugar === 'no') {
+      this.sugar = false
+      this.optionSugar = newPref.optionSugar
+    }
+    if (newPref.optionGluten === 'yes') {
+      this.gluten = true
+      this.optionGluten = newPref.optionGluten
+    } else if (newPref.optionGluten === 'no') {
+      this.gluten = false
+      this.optionGluten = newPref.optionGluten
+    }
+  }
 
   signUp(): void {
     const pref = JSON.parse(localStorage.getItem('preference'))

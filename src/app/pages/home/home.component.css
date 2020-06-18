@@ -1,14 +1,135 @@
-@charset "UTF-8";
 .home {
-  background: url("../../../assets/images/home-picture.png") no-repeat;
-  /* Firefox 3.6+ */
-  /* Safari 3.1+ и Chrome 4.0+ */
-  /* Opera 9.6+ */
-  background-size: 100%;
-  /* Современные браузеры */
-  height: 600px;
   text-align: center;
   padding-top: 60px;
+}
+
+.home img {
+  height: 300px;
+}
+
+.home .first_part {
+  width: 50%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home .first_part h2 {
+  -webkit-animation: bounceIn 5s;
+          animation: bounceIn 5s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.home .first_part p {
+  -webkit-animation: bounceIn 5s;
+          animation: bounceIn 5s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.home .h1_first {
+  -webkit-animation: move 5s infinite;
+          animation: move 5s infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+.home .examples button {
+  margin: 5px;
+}
+
+.home .examples .card {
+  height: 500px;
+}
+
+@-webkit-keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8;
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+  60% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8;
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+  60% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 300px;
+  }
+}
+
+@keyframes move {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 300px;
+  }
 }
 
 .examples {
@@ -33,5 +154,18 @@
 h2, h1, p {
   color: #999999;
   font-family: 'Comfortaa-Medium';
+}
+
+@media screen and (max-width: 768px) {
+  .container .row .card {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container .row .col {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 /*# sourceMappingURL=home.component.css.map */

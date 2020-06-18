@@ -52,6 +52,7 @@ export class DishService {
       map(actions=>actions.map(a=>{
         const data=a.payload.doc.data();
           const id=a.payload.doc.id;
+        // console.log({id,...data})
         return {id,...data}
       }))
     )

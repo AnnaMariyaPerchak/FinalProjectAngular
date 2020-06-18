@@ -7,15 +7,15 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { LogInComponent } from './registration/log-in/log-in.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { DishComponent } from './pages/dish/dish.component';
 
 
-import { GetStartedComponent } from './get-started/get-started.component';
+import { GetStartedComponent } from './pages/get-started/get-started.component';
 
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignUpComponent } from './registration/sign-up/sign-up.component';
 import { LogInGuard } from './shared/guards/log-in.guard';
 
 const routes: Routes = [

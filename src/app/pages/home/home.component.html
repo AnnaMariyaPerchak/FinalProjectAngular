@@ -1,53 +1,55 @@
 <div class="home">
-    <h2>LET’S START WITH GOOD CLEAN FOOD</h2>
-    <p>Delivered to your door, and ready in minutes.</p>
-    
-    <h1 style="color: black;">Actually healthy.</h1>
-    <h1 style="color: black;">Undeniably delicious.</h1>
-    <input type="button" [routerLink]="[ '/get-started']" class="btn btn-dark" style="font-family: 'Comfortaa-Medium';" value="GET STARTED">
-</div>
+    <div style="display: flex;">
+        <div class="text-center first_part">
+            <div style="margin: 0;">
+                <h2>LET’S START WITH GOOD CLEAN FOOD</h2>
+                <p>Delivered to your door, and ready in minutes.</p>
+                <input type="button" [routerLink]="[ '/get-started']" class="btn btn-dark"
+                    style="font-family: 'Comfortaa-Medium';" value="GET STARTED">
+            </div>
+        </div>
+        <div style="width: 50%;height: 300px;">
+            <img src="../../../assets/images/undraw_online_groceries_a02y.png" alt="">
+        </div>
 
-
-
-<!-- <div class="examples">
-    <div>
-        <a href>Soup</a>
-        <a href>Pasta</a>
-        <a href>Bowl</a>
-        <a href>Fish</a>
-        <a href>Meat</a>
-        <a href>Salad</a>
-        <a href>Bakery</a>
-        <a href>Sweets</a>
-        <a href>Smoothie</a>
     </div>
-    <div class="container" style="display: flex;align-items: center;justify-content: center">
-        <div class="row" style="margin: 0;">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="..."> 
-                <p>picture</p>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
+
+    <div style="display: flex;align-items: center;justify-content: center;">
+        <div style="margin: 0;display: flex;">
+            <div>
+                <h1 style="color: black;" class="h1_first">Actually healthy.</h1>
+                <h1 style="color: black;">Undeniably delicious.</h1>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="..."> 
-                <p>picture</p>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                 <img src="..." class="card-img-top" alt="..."> 
-                <p>picture</p>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+            <img style="height: 50px;margin: 13px;" src="../../../assets/images/intersection.png" alt="">
+        </div>
+    </div>
+
+
+    <div class="examples">
+        <div>
+            <button type="button" class="btn btn-dark" (click)="getDish('soup')">Soup</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('pasta')">Pasta</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('bowl')">Bowl</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('fish')">Fish</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('meat')">Meat</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('salad')">Salad</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('bakery')">Bakery</button>
+            <button type="button" class="btn btn-dark" (click)="getDish('desserts')">Desserts</button>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col" *ngFor="let dish of dishes">
+                    <div class="card">
+                        <img [attr.src]="dish.image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div style="margin: 0;">
+                                <h3 class="card-title text-center">{{dish.name}}</h3>
+                                <p class="card-text">{{dish.description}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <button class="btn" style="margin-bottom: 10px;background-color: #999999;font-family: 'Comfortaa-Medium';">See more about dish</button>
-</div> -->
+</div>

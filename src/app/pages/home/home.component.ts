@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DishService } from 'src/app/shared/services/dish.service';
+import { Dish } from 'src/app/shared/modules/dish.module';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  dishes: Array<Dish>=[]
+  
+  constructor(public dishService:DishService) { }
 
   ngOnInit(): void {
+    this.getDish('soup')
   }
 
+  getDish(category:string='soup'):void{
+    this.dishService.getCloudCategoryDishes(category).subscribe(
+      data => {
+        this.dishes.unshift(data[0])
+        this.dishes.unshift(data[1])
+        this.dishes.unshift(data[2])
+      }
+      
+    )
+    this.dishes=[]
+  }
 }

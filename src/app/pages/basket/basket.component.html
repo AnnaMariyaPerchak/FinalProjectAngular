@@ -6,7 +6,7 @@
         <th>#</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Count</th>
+        <th class="text-center">Count</th>
         <th>Total</th>
         <th>Delete</th>
       </thead>
@@ -15,14 +15,13 @@
           <td>{{ i+1 }}</td>
           <td>{{ order.name }}</td>
           <td>{{ order.price }}</td>
-          <td style="width: 280px;">
-            <div class="count justify-content-between">
-              <button type="button"  (click)="orderCount(order, false)" class="btn count1"
-                style="background-color: #a6a6a6;color: black;" [disabled]="order.count===1 ? true : false">-</button>
-              <input type="text" [value]="order.count">
-              <button type="button" (click)="orderCount(order, true)" class="btn count2"
-                style="background-color: #a6a6a6;color: black;">
-                +</button>
+          <td style="width: 150px;">
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn counter" (click)="orderCount(order, false)"
+                style="background-color: #a6a6a6;color: black; " [disabled]="order.count===1 ? true : false">-</button>
+              <p>{{order.count}}</p>
+              <button type="button" class="btn counter" (click)="orderCount(order, true)"
+                style="background-color: #a6a6a6;color: black;">+</button>
             </div>
           </td>
           <td>

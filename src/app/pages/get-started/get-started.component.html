@@ -93,6 +93,11 @@
     </div>
 
     <div class="sign-up" id="sign-up">
-        <a [routerLink]="[ '/sign-up']" class="btn button_sign-up" (click)="addPreference()">Sign up</a> </div>
+        <button *ngIf="logged"  class="btn button_sign-up" [disabled]="true">
+                Sign up
+        </button>
+        <a *ngIf="!logged" [routerLink]="[ '/sign-up']" class="btn button_sign-up" (click)="addPreference()">Sign up</a> 
+    </div>
 
 </div>
+

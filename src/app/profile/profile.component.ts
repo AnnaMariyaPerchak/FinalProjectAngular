@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
 
   personalOrders: Array<Order>
 
-  add:any
+  add: any
 
   constructor(private auth: LogInService,
     private userSErvice: UsersService,
@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
-    
+
   }
 
 
@@ -89,17 +89,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser() {
-    // this.userSErvice.getCloudUser()
     this.user = JSON.parse(localStorage.getItem('user'))
-    // this.userId = this.user.id
-
-    // this.userSErvice.user.subscribe(
-    //   data=>{
-    //     console.log(data)
-    //   })
-
-    
-
     this.userName = this.user.firstName + ' ' + this.user.lastName
     this.userEmail = this.user.email
     this.userAddress = this.user.address
@@ -131,92 +121,69 @@ export class ProfileComponent implements OnInit {
     this.editPhone = this.user.phone
 
     const newPref = JSON.parse(localStorage.getItem('preference'))
-    // console.log(newPref)
     this.prefId = newPref.id
-    // this.prefService.getCloudOneUserPreference(newPref.id).subscribe(
-    //   data => {
-      this.prefService.preference.subscribe(
-        data=>{
-          console.log(data)
-        
+    this.prefService.preference.subscribe(
+      data => {
+        console.log(data)
+
         if (data.optionMeat) {
-          // this.meat = true
           this.optionMeat = data.optionMeat
         } else if (!data.optionMeat) {
-          // this.meat = false
           this.optionMeat = newPref.optionMeat
         }
 
         if (data.optionFish) {
-          // this.fish = true
           this.optionFish = data.optionFish
         } else if (!data.optionFish) {
-          // this.fish = false
           this.optionFish = data.optionFish
         }
 
         if (data.optionDairyProduct) {
-          // this.dairyProducts = true
           this.optionDairyProduct = data.optionDairyProduct
         } else if (!data.optionDairyProduct) {
-          // this.dairyProducts = false
           this.optionDairyProduct = data.optionDairyProduct
         }
 
         if (data.optionSugar) {
-          // this.sugar = true
           this.optionSugar = data.optionSugar
         } else if (!data.optionSugar) {
-          // this.sugar = false
           this.optionSugar = data.optionSugar
         }
         if (data.optionGluten) {
-          // this.gluten = true
           this.optionGluten = data.optionGluten
         } else if (!data.optionGluten) {
-          // this.gluten = false
           this.optionGluten = data.optionGluten
         }
       }
-      )
-      if (newPref.optionMeat==='yes') {
-        this.meat = true
-        // this.optionMeat = data.optionMeat
-      } else if (newPref.optionMeat==='no') {
-        this.meat = false
-        // this.optionMeat = newPref.optionMeat
-      }
+    )
+    if (newPref.optionMeat === 'yes') {
+      this.meat = true
+    } else if (newPref.optionMeat === 'no') {
+      this.meat = false
+    }
 
-      if (newPref.optionFish==='yes') {
-        this.fish = true
-        // this.optionFish = data.optionFish
-      } else if (newPref.optionFish==='no') {
-        this.fish = false
-        // this.optionFish = data.optionFish
-      }
+    if (newPref.optionFish === 'yes') {
+      this.fish = true
+    } else if (newPref.optionFish === 'no') {
+      this.fish = false
+    }
 
-      if (newPref.optionDairyProduct==='yes') {
-        this.dairyProducts = true
-        // this.optionDairyProduct = data.optionDairyProduct
-      } else if (newPref.optionDairyProduct==='no') {
-        this.dairyProducts = false
-        // this.optionDairyProduct = data.optionDairyProduct
-      }
+    if (newPref.optionDairyProduct === 'yes') {
+      this.dairyProducts = true
+    } else if (newPref.optionDairyProduct === 'no') {
+      this.dairyProducts = false
+    }
 
-      if (newPref.optionSugar==='yes') {
-        this.sugar = true
-        // this.optionSugar = data.optionSugar
-      } else if (newPref.optionSugar==='no') {
-        this.sugar = false
-        // this.optionSugar = data.optionSugar
-      }
-      if (newPref.optionGluten==='yes') {
-        this.gluten = true
-        // this.optionGluten = data.optionGluten
-      } else if (newPref.optionGluten==='no') {
-        this.gluten = false
-        // this.optionGluten = data.optionGluten
-      }
+    if (newPref.optionSugar === 'yes') {
+      this.sugar = true
+    } else if (newPref.optionSugar === 'no') {
+      this.sugar = false
+    }
+    if (newPref.optionGluten === 'yes') {
+      this.gluten = true
+    } else if (newPref.optionGluten === 'no') {
+      this.gluten = false
+    }
   }
 
   saveEditProfile() {

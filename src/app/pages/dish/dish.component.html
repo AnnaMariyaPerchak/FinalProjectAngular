@@ -6,21 +6,28 @@
       <div class="card">
         <img [attr.src]="dish.image" class="card-img-top" alt="...">
         <div class="card-body">
-          <h3 class="card-title text-center">{{dish.name}}</h3>
+          <div style="margin: 0;">
+            <h3 class="card-title text-center">{{dish.name}}</h3>
+          <p class="text-center">{{dish.weight}}</p>
           <p class="card-text">{{dish.description}}</p>
-          <p>Weight : {{dish.weight}}</p>
-          <p>Price : {{dish.price}} grn</p>
-          <div class="d-flex justify-content-between">
-            <button type="button" class="btn" (click)="dishCount(dish, false)"
-              style="background-color: #a6a6a6;color: black;" [disabled]="dish.count===1 ? true : false">-</button>
-            <input type="text" [value]="dish.count">
-            <button type="button" class="btn" (click)="dishCount(dish, true)"
-              style="background-color: #a6a6a6;color: black;">+</button>
+          
+          <p class="text-center">{{dish.price}} grn</p>
+          <div style="display: flex;
+          align-items: center;
+          justify-content: center;">
+            <div class="d-flex justify-content-between" style="width: 35%;margin: 0;">
+              <button type="button" class="btn" (click)="dishCount(dish, false)"
+                style="background-color: #a6a6a6;color: black; " [disabled]="dish.count===1 ? true : false">-</button>
+              <p>{{dish.count}}</p>
+              <button type="button" class="btn" (click)="dishCount(dish, true)"
+                style="background-color: #a6a6a6;color: black;">+</button>
+            </div>
           </div>
-          <h2 class="card-text text-center">{{ dish.price * dish.count }} grn</h2>
           <div style="justify-content: center;display: flex; align-items: center;">
-            <button class="btn" style="background-color: #a6a6a6;width: 50%;color: black;" (click)="addBasket(dish)">Add
-              to cart</button>
+            <button class="btn" style="background-color: #a6a6a6;width: 50%;color: black;" (click)="addBasket(dish)">
+             Order  
+            </button>
+          </div>
           </div>
         </div>
       </div>

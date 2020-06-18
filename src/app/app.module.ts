@@ -10,14 +10,14 @@ import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { LogInComponent } from './registration/log-in/log-in.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BasketComponent } from './pages/basket/basket.component';
 import { DishComponent } from './pages/dish/dish.component';
 
-import { GetStartedComponent } from './get-started/get-started.component';
+import { GetStartedComponent } from './pages/get-started/get-started.component';
 
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignUpComponent } from './registration/sign-up/sign-up.component';
 
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { IPreference } from '../shared/interfaces/preference.interface';
-import { Preference } from '../shared/modules/preference.module';
-import { PreferencesService } from '../shared/services/preferences.service';
+import { IPreference } from 'src/app/shared/interfaces/preference.interface';
+import { Preference } from 'src/app/shared/modules/preference.module';
+import { PreferencesService } from 'src/app/shared/services/preferences.service';
 
 @Component({
   selector: 'app-get-started',
@@ -18,10 +18,16 @@ export class GetStartedComponent implements OnInit {
   options: string[] = ['yes','no'];
   preferences:Array<IPreference>=[]
   
+  logged:boolean
   constructor(private prefService: PreferencesService) { }
 
   ngOnInit(): void {
     this.getPreference()
+    if (localStorage.getItem('user')){
+      this.logged=true
+    } else {
+      this.logged=false
+    }
   }
 
   onClick(id: string): void {
